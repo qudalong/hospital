@@ -1,0 +1,13 @@
+@import "/pages/index/index.wxss";
+.medicine{
+  padding: 0;
+  margin: 30rpx;
+  background: #f0f0f0;
+}
+.medicine .item{
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  box-shadow: 4rpx 4rpx 10rpx #ccc;
+}

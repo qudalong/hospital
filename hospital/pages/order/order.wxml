@@ -1,0 +1,69 @@
+<!-- 预约时间 -->
+<view class='order-time'>
+  <view class='today'>
+    <text>今天</text>
+    <text>{{today}}</text>
+  </view>
+  <view class='time-list'>
+    <view class='day-number'>
+      <view wx:for="{{orderDay}}" wx:key="unique" class='item'>{{item}}</view>
+    </view>
+    <view class='week-number'>
+      <view wx:if="{{orderWeek.length}}" bindtap='chooseOrderTime' wx:for="{{orderWeek}}" wx:key="unique" class="item {{curCk==index?'active':''}}" data-index="{{index}}">{{item}}</view>
+    </view>
+  </view>
+</view>
+<!-- 历史处方 -->
+<view class='title-cf'>
+  <image src="/image/lister_doctorlist_icon.png" class="lister_doctorlist_icon" mode='aspectFill' />
+  <text>医生列表</text>
+</view>
+<view class='hb medicine'>
+  <view bindtap='orderReady' wx:if="{{doctorList.length}}" wx:for="{{doctorList}}" wx:key="unique" class='item' data-id="{{item.id}}" data-index='{{index}}' data-status='{{item.i_examine_flag}}' >
+    <view class='people-info'>
+      <view class='cover-img head'>
+        <image mode='aspectFill' src="{{item.path?item.path:'/image/module_visitingadoctor_btn.png'}}"></image>
+      </view>
+      <view class='doctor'>
+        <view class='row-1'>
+          <text>{{item.v_doctor_name}}</text>
+          <view class='propress-block'>
+            <view class='num'>{{item.i_over_num}}/{{item.i_max_num}}</view>
+            <view class='propress'>
+              <view class='total'>
+                <view class='already' style="width:{{item.width}}rpx"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='row-2'>{{item.type?item.type:'主治大夫'}}</view>
+      </view>
+    </view>
+    <view class='right'>
+      <view class='moeny'>¥{{item.i_examine_money}}</view>
+      <icon class='iconfont icon-arrow-right'></icon>
+    </view>
+  </view>
+</view>
+<view bindtap='showExplain' class='explain'>就诊说明>></view>
+<!-- 说明详情 -->
+<view wx:if="{{showExplain}}" catchtouchmove='true' class='cover-bg'>
+  <view class='explain-wrap'>
+    <view class='title'>就诊说明</view>
+    <view class='desc'>
+      <view class='item'>
+        <view class='question'>Q1:如何挂号？</view>
+        <view class='answer'>请于每周四在小程序中预约挂号</view>
+      </view>
+      <view class='item'>
+        <view class='question'>Q2:如何挂号？</view>
+        <view class='answer'>请于每周四在小程序中预约挂号</view>
+      </view>
+      <view class='item'>
+        <view class='question'>Q1:如何挂号？</view>
+        <view class='answer'>请于每周四在小程序中预约挂号</view>
+      </view>
+    </view>
+    <view bindtap='closeExplain' class='btn-close' hover-class='hover'>关闭</view>
+  </view>
+</view>

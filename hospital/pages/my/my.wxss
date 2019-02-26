@@ -1,0 +1,54 @@
+page {
+  background: #fff;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.userAvatarUrl {
+  height: 140rpx;
+  width: 140rpx;
+  margin-right: 30rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userNickName {
+  margin-bottom: 20rpx;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  color: #888;
+}
+
+.info text {
+  margin-right: 20rpx;
+}
+
+.info-list .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  font-size:34rpx;
+}
+
+.left .iconfont {
+  padding-right: 14rpx;
+  font-size: 56rpx;
+}

@@ -1,0 +1,10 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class='articleDesc'>
+  <view class='head'>
+    <view class='title'>{{knowledgeItem.title}}</view>
+    <view class='time'>{{knowledgeItem.v_date}}</view>
+  </view>
+  <view class='desc'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>

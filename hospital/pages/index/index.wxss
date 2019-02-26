@@ -1,0 +1,124 @@
+.nav-wrap .button{
+  position: relative;
+  height: 164rpx;
+  padding: 0;
+}
+.jz,.btn-text{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.row-title .title{
+  flex: 1;
+}
+.jz{
+  top: 19rpx;
+}
+.btn-text{
+  bottom: 1rpx;
+}
+.swiper {
+  height: 349rpx;
+}
+
+.swiper swiper-item, .swiper .slide-image {
+  width: 100%;
+  height: 100%;
+}
+.now-time{
+  font-size: 28rpx;
+  color: red;
+  text-align: right;
+}
+.about-us {
+  position: absolute;
+  left: 30rpx;
+  top:-10rpx;
+  width: 690rpx;
+  box-sizing: border-box;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 8rpx;
+  background: #fff;
+  box-shadow: 1px 2px 3px #ccc;
+}
+
+.about-us .tel {
+  width: 120rpx;
+  padding: 0 10rpx 0 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+  border-left: 1rpx solid #f0f0f0;
+}
+
+.hospital-info {
+  flex: 1;
+}
+
+.icon-icon-test {
+  color: #c9c9c9;
+  margin-right: 4rpx;
+}
+
+.hospital-info .adress {
+  color: #888;
+  font-size: 28rpx;
+}
+.adress {
+  display: flex;
+  align-items: center;
+}
+
+.hospital-info .name {
+  margin-bottom: 10rpx;
+}
+
+
+/* 小导航 */
+
+.nav-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top:150rpx;
+  background: #fff;
+}
+.nav-icon{
+  width: 130rpx;
+  height: 130rpx;
+}
+.nav-wrap .item {
+  width: 25%;
+  padding: 40rpx 0;
+  text-align: center;
+}
+
+.nav-wrap .item view{
+ font-size:30rpx;
+}
+
+.row-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+.desc{
+  color: #888;
+  font-size: 28rpx;
+}
+.nav-icon{
+  width: 80rpx;
+  height: 80rpx;
+}
+.positionr{
+   width: 40rpx;
+  height: 40rpx;
+  margin-right: 4rpx;
+}
+.phone_btn{
+   width: 60rpx;
+  height: 60rpx;
+}

@@ -1,0 +1,155 @@
+@import "/pages/healthRecord/healthRecord.wxss";
+
+.hb .item .head {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.icon-list-1-copy {
+  font-size: 50rpx;
+  margin-right: 10rpx;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.moeny {
+  color: red;
+  margin-right: 4rpx;
+}
+
+.row-2 {
+  color: #888;
+  margin-top: 6rpx;
+}
+
+.row-1 {
+  flex-direction: row !important;
+}
+
+.propress-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 10rpx;
+}
+
+.propress {
+  margin-top: 4rpx;
+}
+
+.propress .total {
+  position: relative;
+  width: 100rpx;
+  height: 8rpx;
+  background: #ccc;
+  border-radius: 6rpx;
+}
+
+.propress .already {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30rpx;
+  height: 8rpx;
+  background: #19c3ba;
+  border-radius: 6rpx;
+}
+
+.order-time {
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+
+.today {
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.today text {
+  padding: 0 4rpx;
+}
+
+.week-number, .day-number {
+  display: flex;
+  align-items: center;
+}
+
+.week-number .item, .day-number .item {
+  text-align: center;
+  width: 33.33%;
+  padding: 30rpx 0;
+  border-left: 1rpx solid #f0f0f0;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.week-number .item.active {
+  background: #19c3ba;
+  color: #fff;
+}
+
+.explain {
+  color: red;
+  text-align: right;
+  padding-right: 30rpx;
+}
+
+.cover-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.explain-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.explain-wrap .title {
+  padding: 30rpx 0;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.explain-wrap .item {
+  margin-bottom: 40rpx;
+}
+
+.explain-wrap .desc {
+  padding: 30rpx;
+}
+
+.question {
+  margin-bottom: 14rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.answer {
+  font-size: 30rpx;
+}
+
+.btn-close {
+  display: inline-block;
+  padding: 20rpx 70rpx;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10rpx;
+  background: #19c3ba;
+  color: #fff;
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+}

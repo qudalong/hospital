@@ -1,0 +1,23 @@
+<view class="pay-info">
+  <view class='item'>
+    <view class='label'>就诊人:</view>
+    <view class='info'>{{register_info.v_user_name}}</view>
+  </view>
+  <view class='item'>
+    <view class='label'>就诊医生:</view>
+    <view class='info'>{{register_info.v_doctor_name}}</view>
+  </view>
+  <view class='item'>
+    <view class='label'>就诊时间:</view>
+    <view class='info'>{{register_info.v_examine_time}} 上午</view>
+  </view>
+  <view class='item'>
+    <view class='label'>就诊类型:</view>
+    <view class='info type'>{{register_info.v_register_type}}</view>
+  </view>
+  <view class='item'>
+    <view class='label'>支付状态:</view>
+    <view class='info success'>{{register_info.v_pay_state}}</view>
+  </view>
+</view>
+<view class='explain'>注：就诊时，麻烦在我的->我的预约出示预约信息</view>

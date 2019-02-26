@@ -1,0 +1,32 @@
+.pay-info{
+  margin:30rpx 30rpx 10rpx;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 1rpx 2rpx 6rpx #ccc;
+}
+.pay-info .item{
+  display: flex;
+  align-items: center;
+ margin-bottom: 30rpx;
+}
+.pay-info .item .label{
+  width: 160rpx;
+  color: #888;
+  margin-right: 20rpx;
+  text-align: right;
+}
+.pay-info .item .info{
+ flex: 1;
+}
+.explain{
+  padding: 0 30rpx;
+  color: red;
+  font-size: 28rpx;
+}
+.type,.success{
+  color: #888;
+}
+.pay-info .item:last-of-type{
+  margin-bottom: 0;
+}

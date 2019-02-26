@@ -1,0 +1,82 @@
+<!-- 轮播图 -->
+<view wx:if="{{bannerList.length}}" class='banner-wrap'>
+  <swiper class='swiper my-class' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#9999FF" indicator-color="#fff">
+    <swiper-item wx:for="{{bannerList}}" wx:key="unique" >
+      <!-- <image bindtap='bannerToPage' src="{{item.v_path}}" class="slide-image" mode='aspectFill' data-id="{{item.id}}" data-link="{{item.v_link_path}}"/> -->
+      <image bindtap='bannerToPage' src="/image/1.jpg" class="slide-image" mode='aspectFill' data-id="{{item.id}}"/>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 小导航 -->
+<view class='nav-wrap'>
+  <button bindgetuserinfo='userInfoHandler' open-type="getUserInfo" class='item button' hover-class='hover'>
+    <image src="/image/module_visitingadoctor_btn.png" class="nav-icon jz" mode='aspectFill' />
+    <view class='btn-text'>就诊</view>
+  </button>
+  <view bindtap='toHotMedicine' class='item' hover-class='hover' data-type='1'>
+    <image src="/image/module_torment_btn.png" class="nav-icon" mode='aspectFill' />
+    <view>中药煎熬</view>
+  </view>
+  <view bindtap='toHospitalNews' class='item' hover-class='hover' data-type='2'>
+    <image src="/image/module_news_btn.png" class="nav-icon" mode='aspectFill' />
+    <view>医馆资讯</view>
+  </view>
+  <view bindtap='toLoreMedicine' class='item' hover-class='hover' data-type='3'>
+    <image src="/image/module_knowhow_btn.png" class="nav-icon" mode='aspectFill' />
+    <view>中药小知识</view>
+  </view>
+  <!-- 关于我们 -->
+  <view class='about-us'>
+    <view bindtap='getAddress' class='hospital-info' hover-class='hover'>
+      <view class='name'>拯济堂中医诊所</view>
+      <view class='adress'>
+        <image src="/image/lister_positionr_icon.png" class="positionr" mode='aspectFill' />
+        <text>郑州市金水区东明路北38号</text>
+      </view>
+    </view>
+    <view bindtap='tel' class='tel' hover-class='hover'>
+      <image src="/image/phone_btn.png" class="phone_btn" mode='aspectFill' />
+      <view>联系我们</view>
+    </view>
+  </view>
+</view>
+<!-- 医馆资讯 -->
+<view wx:if="{{hotNewsFirst}}" bindtap='toHospitalNews' class='hd' hover-class='hover' data-type='2'>
+  <view class='icon-title'>
+    <image src="/image/lister_news_icon.png" class="lister_news_icon" mode='aspectFill' />
+    <text>医馆资讯消息</text>
+  </view>
+  <view class='more'>
+    <text>更多</text>
+    <image src="/image/right_btn.png" class="right_btn" mode='aspectFill' />
+  </view>
+</view>
+<view wx:if="{{hotNewsFirst}}" bindtap='showMoreFlag' class='hb'>
+  <view class='row-title'>
+    <view class='title ellipsis'>
+      <image src="/image/lister_notice_icon.png" class="lister_notice_icon" mode='aspectFill' />
+      <text>{{hotNewsFirst.title}}</text>
+    </view>
+    <view class='now-time'>{{hotNewsFirst.v_date}}</view>
+  </view>
+  <view wx:if="{{showHotNewDesc}}" class='desc'>{{hotNewsFirst.content}}</view>
+</view>
+<!-- 中药小知识 -->
+<view wx:if="{{knowledgeThress.length}}" bindtap='toLoreMedicine' class='hd' hover-class='hover' data-type='3'>
+  <view class='icon-title'>
+    <image src="/image/lister_knowhow_icon.png" class="lister_knowhow_icon" mode='aspectFill' />
+    <text>中药小知识</text>
+  </view>
+  <view class='more'>
+    <text>更多</text>
+    <image src="/image/right_btn.png" class="right_btn" mode='aspectFill' />
+  </view>
+</view>
+<view class='hb'>
+  <view bindtap='toArticleDesc' wx:if="{{knowledgeThress.length}}" wx:for="{{knowledgeThress}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
+    <view class='cover-img'>
+      <image mode='aspectFill' src='{{item.path}}'></image>
+    </view>
+    <view class='title ellipsis2'>{{item.title}}</view>
+  </view>
+</view>

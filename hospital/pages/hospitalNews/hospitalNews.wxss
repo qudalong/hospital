@@ -1,0 +1,16 @@
+@import "/pages/hotMedicine/hotMedicine.wxss";
+
+.time {
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 10rpx;
+  padding-left: 62rpx;
+}
+.news {
+  flex-direction: column;
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 6rpx;
+  box-shadow: 1px 0px 6px #ccc;
+}

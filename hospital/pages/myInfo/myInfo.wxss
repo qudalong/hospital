@@ -1,0 +1,37 @@
+@import "/pages/my/my.wxss";
+.label{
+  width: 150rpx;
+  color: #888;
+  text-align: right;
+  margin-right: 10rpx;
+}
+.info{
+  flex: 1;
+  color: #333;
+}
+.info input{
+ height: 100%;
+}
+.userNickName{
+  font-size: 34rpx;
+}
+.name-info{
+  color: #666;
+}
+.radio{
+  padding-right: 20rpx;
+}
+.picker{
+  padding: 8rpx 0;
+}
+.submit-btn{
+  display: inline-block;
+  padding: 20rpx 120rpx;
+  border-radius: 10rpx;
+  background: #9999FF;
+  margin-left: 50%;
+  margin-top:150rpx; 
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 32rpx;
+}

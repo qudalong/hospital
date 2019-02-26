@@ -1,0 +1,34 @@
+@import "/wxParse/wxParse.wxss";
+page {
+  background: #fff;
+}
+
+.articleDesc {
+  background: #fff;
+}
+
+.articleDesc .head {
+  padding: 30rpx;
+}
+
+.head .title {
+  font-size: 32rpx;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.head .time {
+  padding-top: 20rpx;
+  font-size: 30rpx;
+  color: #888;
+}
+
+.desc {
+  line-height: 2;
+  padding: 30rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.desc image {
+  width: 100%;
+}

@@ -1,0 +1,19 @@
+@import "/pages/my/my.wxss";
+@import "/pages/paySuccess/paySuccess.wxss";
+.order-desc .title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  background: #C7C7F6;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+.order-desc{
+  padding: 0 0 30rpx 0;
+  overflow: hidden;
+  background: #F7F7F7;
+}
+.order-desc:last-of-type{
+ margin-bottom: 30rpx;
+}

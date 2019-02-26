@@ -1,0 +1,52 @@
+<view class='userInfo'>
+  <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
+  <view class='info'>
+    <open-data class='userNickName' type="userNickName" lang="zh_CN"></open-data>
+    <view wx:if="{{bindFlag}}" class='name-info'>
+      <text>{{name}}</text>
+      <text>{{tel_head}}</text>
+    </view>
+  </view>
+</view>
+<view class='info-list'>
+  <view class='item'>
+    <view class='label'>姓名：</view>
+    <view class='info'>
+      <input bindinput='name' type='text' value='{{name}}' disabled="{{bindFlag?true:false}}" placeholder='请输入姓名' />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>性别：</view>
+    <view class='info'>
+      <radio-group wx:if="{{!bindFlag}}" class="radio-group" bindchange="sex">
+        <label class="radio" wx:for="{{sexList}}" wx:key="unique">
+          <radio color='#9999FF' value="{{item.sex}}" checked="{{item.checked}}" />
+          <text>{{item.value}}</text>
+        </label>
+      </radio-group>
+      <input wx:else type='text' value="{{sex}}" disabled />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>手机号码：</view>
+    <view class='info'>
+      <input bindinput='tel' type='number' value='{{tel}}' maxlength='11' placeholder='请输入手机号码' />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>出生日期：</view>
+    <view class='info'>
+      <picker mode="date" value="{{date}}" bindchange="date">
+        <view wx:if="{{date}}" class="picker">{{date}}</view>
+        <input wx:else type='number' disabled placeholder='请选择出生日期' />
+      </picker>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>年龄：</view>
+    <view class='info'>
+      <input type='number' disabled value='{{age}}' />
+    </view>
+  </view>
+</view>
+<view  bindtap="{{bindFlag?'modifyBindUser':'submit'}}" class='submit-btn' hover-class='hover'>{{!bindFlag?'提交':'修改'}}</view>

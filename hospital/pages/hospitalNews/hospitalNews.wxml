@@ -1,0 +1,9 @@
+<view class='hb medicine'>
+  <view bindtap='toNewsDesc' wx:if="{{newsList.length}}" wx:for="{{newsList}}" wx:key="unique" class='news' hover-class='hover' data-id="{{item.id}}">
+    <view class='title ellipsis'>
+      <image src="{{item.path}}" class="lister_notice_icon" mode='aspectFill' />
+      <text>{{item.title}}</text>
+    </view>
+    <view class='time'>{{item.v_date}}</view>
+  </view>
+</view>

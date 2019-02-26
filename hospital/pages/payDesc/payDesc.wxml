@@ -1,0 +1,33 @@
+<view class='tip'>请在10分钟内完成付款，否则订单将自动失败！</view>
+<view class='pay-wrap'>
+  <view class="pay-info">
+    <view class='item'>
+      <view class='label'>就诊人:</view>
+      <view class='info'>{{patient}}</view>
+    </view>
+    <view class='item'>
+      <view class='label'>就诊医生:</view>
+      <view class='info'>{{doctor.v_doctor_name}}</view>
+    </view>
+    <view class='item'>
+      <view class='label'>就诊时间:</view>
+      <view class='info'>{{orderTime}}</view>
+    </view>
+    <view class='item'>
+      <view class='label'>就诊类型:</view>
+      <view class='info'>
+        <radio-group class="radio-group" bindchange="chooseType">
+          <label class="radio" wx:for="{{items}}" wx:key="unique">
+            <radio value="{{item.name}}" color='#19C3BA' checked="{{item.checked}}" />
+            <text>{{item.value}}</text>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+  <view class='result'>
+    <text>付款金额：</text>
+    <text class='total-money'>¥{{doctor.i_examine_money}}</text>
+  </view>
+</view>
+<view bindtap='payNow' class='pay-btn' hover-class='hover'>立即支付</view>

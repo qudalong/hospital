@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/upload/upload",
+    "pages/order/order",
+    "pages/myInfo/myInfo",
+    "pages/my/my",
+    "pages/healthRecord/healthRecord",
+    "pages/paySuccess/paySuccess",
+    "pages/patientInfo/patientInfo",
+    "pages/hotMedicine/hotMedicine",
+    "pages/hospitalNews/hospitalNews",
+    "pages/myOrder/myOrder",
+    "pages/payDesc/payDesc",
+    "pages/articleDesc/articleDesc",
+    "pages/loreMedicine/loreMedicine"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取诊所具体地址，方便就诊患者查找诊所具体位置。"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#9999FF",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#9999FF",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/tab_home_gray.png",
+        "selectedIconPath": "image/tab_home_purple.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/healthRecord/healthRecord",
+        "iconPath": "image/tab_order_gray.png",
+        "selectedIconPath": "image/tab_order_purple.png",
+        "text": "健康档案"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/tab_home_my.png",
+        "selectedIconPath": "image/tab_my_purple.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

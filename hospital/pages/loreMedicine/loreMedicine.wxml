@@ -1,0 +1,8 @@
+<view class='hb medicine'>
+  <view bindtap='toArticleDesc' wx:if="{{knowledgeList.length}}" wx:for="{{knowledgeList}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
+    <view class='cover-img'>
+      <image mode='aspectFill' src='{{item.path}}'></image>
+    </view>
+    <view class='title ellipsis2'>{{item.title}}</view>
+  </view>
+</view>

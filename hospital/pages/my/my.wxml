@@ -1,0 +1,26 @@
+<view class='userInfo'>
+    <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
+  <view class='info'>
+    <open-data class='userNickName' type="userNickName" lang="zh_CN"></open-data>
+    <view wx:if="{{bindFlag}}" class='name-info'>
+      <text>{{name}}</text>
+      <text>{{tel}}</text>
+    </view>
+  </view>
+</view>
+<view class='info-list'>
+  <view bindtap='toMyInfo' class='item' hover-class='hover'>
+    <view class='left'>
+    <image src="/image/my_my_icon.png" class="my_my_icon" mode='aspectFill' />
+      <text>个人信息</text>
+    </view>
+    <image src="/image/right_btn.png" class="right_btn" mode='aspectFill' />
+  </view>
+  <view bindtap='toMyOrder' class='item' hover-class='hover'>
+    <view class='left'>
+      <image src="/image/my_personalinformation_icon.png" class="my_personalinformation_icon" mode='aspectFill' />
+      <text>我的预约</text>
+    </view>
+    <image src="/image/right_btn.png" class="right_btn" mode='aspectFill' />
+  </view>
+</view>

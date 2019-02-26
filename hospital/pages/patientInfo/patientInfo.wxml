@@ -1,0 +1,5 @@
+<view class='img-list clearfix'>
+  <view wx:if="{{hostoryList.length}}" wx:for="{{hostoryList}}" wx:key="unique" class='item'>
+    <image mode='aspectFill' src='{{item.path}}'></image>
+  </view>
+</view>

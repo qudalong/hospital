@@ -1,0 +1,41 @@
+@import "/pages/paySuccess/paySuccess.wxss";
+.pay-wrap{
+  margin: 30rpx;
+}
+.pay-wrap .pay-info{
+  margin: 0;
+}
+.radio{
+  padding-right: 40rpx;
+}
+.result{
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  text-align: right;
+  margin-top: 30rpx;
+}
+.total-money{
+  color: red;
+}
+.tip{
+padding:20rpx 30rpx;
+background: #dedede;
+color: red;
+font-size: 28rpx;
+}
+.pay-btn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 690rpx;
+  margin: 30rpx;
+  padding: 26rpx 0;
+  box-sizing: border-box;
+  color: #fff;
+  text-align: center;
+  background: #19C3BA;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  font-size: 34rpx;
+}
