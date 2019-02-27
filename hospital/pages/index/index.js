@@ -166,7 +166,7 @@ Page({
         wx.openLocation({
           latitude: latitude,
           longitude: longitude,
-          scale: 27,
+          scale:17,
           name: '拯济堂中医诊所',
           address: '郑州市金水区东明路北38号'
         });
