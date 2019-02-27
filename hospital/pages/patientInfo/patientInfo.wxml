@@ -1,6 +1,6 @@
 <block wx:if="{{hostoryList.length}}">
   <view class='img-list clearfix'>
-    <view wx:for="{{hostoryList}}" wx:key="unique" class='item'>
+    <view bindtap='previewImage' wx:for="{{hostoryList}}" wx:key="unique" class='item' data-path="{{item.path}}">
       <image mode='aspectFill' src='{{item.path}}'></image>
     </view>
   </view>

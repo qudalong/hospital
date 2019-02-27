@@ -8,6 +8,7 @@ Page({
    */
   data: {
     username:'',
+    imageList:[],
     hostoryList: []
   },
 
@@ -35,11 +36,23 @@ Page({
     }).then(res => {
       const hotData = res.data;
       if (hotData.status_flag) {
+        hotData.images.forEach((el, i, arr) => {
+          this.data.imageList.push(arr[i].path);
+        });
         this.setData({
-          hostoryList: hotData.images
+          hostoryList: hotData.images,
+          imageList: this.data.imageList
         });
       }
     });
+  },
+
+  previewImage(e) {
+    const current = e.target.dataset.path;
+    wx.previewImage({
+      current: current, 
+      urls: this.data.imageList 
+    })
   },
 
   /**
