@@ -2,36 +2,43 @@
   <open-data class='userAvatarUrl' type="userAvatarUrl"></open-data>
   <view class='info'>
     <open-data class='userNickName' type="userNickName" lang="zh_CN"></open-data>
-    <view>
-      <text>李四</text>
-      <text>18768871893</text>
+    <view wx:if="{{name}}">
+      <text>{{name}}</text>
+      <text>{{tel}}</text>
     </view>
   </view>
 </view>
 <!-- 预约列表 -->
-<view wx:if="{{orderList.length}}" wx:for="{{orderList}}" wx:key="unique" class="pay-info order-desc">
-  <view class='title'>
-    <view>{{item.v_examine_time}}</view>
-    <view>挂号详情</view>
+<block wx:if="{{orderList.length}}">
+  <view wx:for="{{orderList}}" wx:key="unique" class="pay-info order-desc">
+    <view class='title'>
+      <view>{{item.v_examine_time}}</view>
+      <view>挂号详情</view>
+    </view>
+    <view class='item'>
+      <view class='label'>就诊人:</view>
+      <view class='info'>{{item.v_user_name}}</view>
+    </view>
+    <view class='item'>
+      <view class='label'>就诊医生:</view>
+      <view class='info'>{{item.v_doctor_name}}</view>
+    </view>
+    <view class='item'>
+      <view class='label'>就诊时间:</view>
+      <view class='info'>{{item.v_examine_time}}</view>
+    </view>
+    <view class='item'>
+      <view class='label'>就诊类型:</view>
+      <view class='info type'>{{item.v_register_type}}</view>
+    </view>
+    <view class='item'>
+      <view class='label'>支付状态:</view>
+      <view class='info success'>{{item.v_register_state}}</view>
+    </view>
   </view>
-  <view class='item'>
-    <view class='label'>就诊人:</view>
-    <view class='info'>{{item.v_user_name}}</view>
+</block>
+<block wx:else>
+  <view class='empty-warp'>
+    <image class='empty-icon' mode='widthFix' src='/image/emptystate_bg.png'></image>
   </view>
-  <view class='item'>
-    <view class='label'>就诊医生:</view>
-    <view class='info'>{{item.v_doctor_name}}</view>
-  </view>
-  <view class='item'>
-    <view class='label'>就诊时间:</view>
-    <view class='info'>{{item.v_examine_time}}</view>
-  </view>
-  <view class='item'>
-    <view class='label'>就诊类型:</view>
-    <view class='info type'>{{item.v_register_type}}</view>
-  </view>
-  <view class='item'>
-    <view class='label'>支付状态:</view>
-    <view class='info success'>{{item.v_register_state}}</view>
-  </view>
-</view>
+</block>

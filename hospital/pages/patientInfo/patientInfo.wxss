@@ -1,1 +1,5 @@
 @import "/pages/upload/upload.wxss";
+
+.img-list .item {
+  overflow: hidden;
+}

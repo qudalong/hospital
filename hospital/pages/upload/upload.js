@@ -2,9 +2,7 @@ const app = getApp();
 import {
   request
 } from '../../utils/request.js'
-import {
-  uploadOneByOne
-} from '../../utils/util.js'
+
 Page({
   data: {
     aUploadImgList: [],
@@ -13,7 +11,6 @@ Page({
   onLoad: function(options) {
     let aUploadImgList = JSON.parse(options.aUploadImgList);
     let aUploadImgList_low = JSON.parse(options.aUploadImgList_low);
-    console.log(aUploadImgList)
     this.setData({
       aUploadImgList,
       aUploadImgList_low
@@ -33,6 +30,9 @@ Page({
       if (hotData.status_flag) {
         wx.showToast({
           title: hotData.status_msg
+        });
+        wx.navigateBack({
+          delta:1
         });
       } else {
         wx.showToast({
@@ -54,7 +54,6 @@ Page({
       aUploadImgList_low
     })
   },
-
   // 传照片
   uploadImg() {
     let {
@@ -80,7 +79,7 @@ Page({
               let failUp = 0;
               let length = res.tempFilePaths.length;
               let count = 0;
-              uploadOneByOne(app.globalData.url,res.tempFilePaths, successUp, failUp, count, length);
+              this.uploadOneByOne(res.tempFilePaths, successUp, failUp, count, length);
             }
           })
         } else if (res.tapIndex == 1) { //相册
@@ -93,9 +92,52 @@ Page({
               let failUp = 0;
               let length = res.tempFilePaths.length;
               let count = 0;
-              this.uploadOneByOne(app.globalData.url,res.tempFilePaths, successUp, failUp, count, length);
+              this.uploadOneByOne(res.tempFilePaths, successUp, failUp, count, length);
             }
           });
+        }
+      }
+    })
+  },
+
+  uploadOneByOne(imgPaths, successUp, failUp, count, length) {
+    wx.showLoading({
+      title: '上传中...',
+      icon: 'none'
+    })
+    let { aUploadImgList_low, aUploadImgList } = this.data;
+    wx.uploadFile({
+      url: `${app.globalData.url}registerController/uploadImages`,
+      filePath: imgPaths[count],
+      name: `chufa`,
+      success: (e) => {
+        if (e.statusCode == 200) {
+          let hotData = JSON.parse(e.data);
+          aUploadImgList.push(hotData.resultPath);
+          aUploadImgList_low.push(hotData.resultPathLow);
+          aUploadImgList.concat(aUploadImgList);
+          aUploadImgList_low.concat(aUploadImgList_low);
+          successUp++;
+          this.setData({
+            aUploadImgList,
+            aUploadImgList_low
+          });
+        }
+      },
+      fail: (e) => {
+        failUp++;
+      },
+      complete: (e) => {
+        count++;
+        if (count == length) {
+          wx.hideLoading();
+          wx.showToast({
+            title: '上传成功',
+            icon: 'success',
+            duration: 2000
+          });
+        } else {
+          this.uploadOneByOne(imgPaths, successUp, failUp, count, length);
         }
       }
     })

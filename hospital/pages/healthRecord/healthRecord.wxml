@@ -11,13 +11,20 @@
   <text>历史处方</text>
 </view>
 <view class='hb medicine'>
-  <view bindtap='toPatientInfo' wx:if="{{historyList.length}}" wx:for="{{historyList}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
-    <view class='people-info'>
-      <view class='cover-img head'>
-        <image mode='aspectFill' src='/image/module_visitingadoctor_btn.png'></image>
+  <block wx:if="{{historyList.length}}">
+    <view bindtap='toPatientInfo' wx:for="{{historyList}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}" data-username="{{item.v_user_name}}">
+      <view class='people-info'>
+        <view class='cover-img head'>
+          <image mode='aspectFill' src='/image/module_visitingadoctor_btn.png'></image>
+        </view>
+        <view class='row-1'>{{item.v_user_name}}</view>
       </view>
-      <view class='row-1'>{{item.v_user_name}}</view>
+      <view class='time'>{{item.v_date_time}}</view>
     </view>
-    <view class='time'>{{item.v_date_time}}</view>
-  </view>
+  </block>
+  <block wx:else>
+    <view class='empty-warp'>
+      <image class='empty-icon' mode='widthFix' src='/image/emptystate_bg.png'></image>
+    </view>
+  </block>
 </view>

@@ -47,55 +47,9 @@ const addByTransDate = (dateParameter, num) => {
   return dateString;
 }
 
-const uploadOneByOne = (url,imgPaths, successUp, failUp, count, length) => {
-  wx.showLoading({
-    title: '上传中...',
-    icon: 'none'
-  })
-  let {
-    aUploadImgList_low,
-    aUploadImgList
-  } = this.data;
-  wx.uploadFile({
-    url: `${url}registerController/uploadImages`,
-    filePath: imgPaths[count],
-    name: `chufa`,
-    success: (e) => {
-      if (e.statusCode == 200) {
-        let hotData = JSON.parse(e.data);
-        aUploadImgList.push(hotData.resultPath);
-        aUploadImgList_low.push(hotData.resultPathLow);
-        aUploadImgList.concat(aUploadImgList);
-        aUploadImgList_low.concat(aUploadImgList_low);
-        successUp++;
-        this.setData({
-          aUploadImgList,
-          aUploadImgList_low
-        });
-      }
-    },
-    fail: (e) => {
-      failUp++;
-    },
-    complete: (e) => {
-      count++;
-      if (count == length) {
-        wx.hideLoading();
-        wx.showToast({
-          title: '上传成功',
-          icon: 'success',
-          duration: 2000
-        });
-      } else {
-        this.uploadOneByOne(url,imgPaths, successUp, failUp, count, length);
-      }
-    }
-  })
-}
 
 module.exports = {
   date,
   week,
-  addByTransDate,
-  uploadOneByOne
+  addByTransDate
 }

@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name:'',
+    tel:'',
     page:0,
     more:true,
     orderList: []
@@ -16,6 +18,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const name = options.name;
+    const tel = options.tel;
+    this.setData({
+      name,
+      tel
+    })
     this.getRegisterByUserId();
   },
 

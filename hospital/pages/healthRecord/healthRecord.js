@@ -2,9 +2,6 @@ const app = getApp();
 import {
   request
 } from '../../utils/request.js'
-import {
-  uploadOneByOne
-} from '../../utils/util.js'
 Page({
   data: {
     aUploadImgList: [],
@@ -63,7 +60,7 @@ Page({
               let failUp = 0;
               let length = res.tempFilePaths.length;
               let count = 0;
-              uploadOneByOne(app.globalData.url, res.tempFilePaths, successUp, failUp, count, length);
+              this.uploadOneByOne(res.tempFilePaths, successUp, failUp, count, length);
             }
           })
         } else if (res.tapIndex == 1) { //相册
@@ -76,17 +73,63 @@ Page({
               let failUp = 0;
               let length = res.tempFilePaths.length;
               let count = 0;
-              uploadOneByOne(app.globalData.url, res.tempFilePaths, successUp, failUp, count, length);
+              this.uploadOneByOne(res.tempFilePaths, successUp, failUp, count, length);
             }
           });
         }
       }
     })
   },
+
+  uploadOneByOne(imgPaths, successUp, failUp, count, length) {
+    wx.showLoading({
+      title: '上传中...',
+      icon: 'none'
+    })
+    let {
+      aUploadImgList_low,
+      aUploadImgList
+    } = this.data;
+    wx.uploadFile({
+      url: `${app.globalData.url}registerController/uploadImages`,
+      filePath: imgPaths[count],
+      name: `chufa`,
+      success: (e) => {
+        if (e.statusCode == 200) {
+          let hotData = JSON.parse(e.data);
+          aUploadImgList.push(hotData.resultPath);
+          aUploadImgList_low.push(hotData.resultPathLow);
+          successUp++;
+          wx.navigateTo({
+            url: `/pages/upload/upload?aUploadImgList=${JSON.stringify(aUploadImgList)}&aUploadImgList_low=${JSON.stringify(aUploadImgList_low)}`
+          })
+        }
+      },
+      fail: (e) => {
+        failUp++;
+      },
+      complete: (e) => {
+        count++;
+        if (count == length) {
+          wx.hideLoading();
+          wx.showToast({
+            title: '上传成功',
+            icon: 'success',
+            duration: 2000
+          });
+        } else {
+          this.uploadOneByOne(imgPaths, successUp, failUp, count, length);
+        }
+      }
+    })
+  },
+
+
   toPatientInfo(e) {
     const id = e.currentTarget.dataset.id;
+    const username = e.currentTarget.dataset.username;
     wx.navigateTo({
-      url: `/pages/patientInfo/patientInfo?id=${id}`
+      url: `/pages/patientInfo/patientInfo?id=${id}&username=${username}`
     })
   },
   toUpload() {
@@ -107,6 +150,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    request({
+      url: 'registerController/seachPrescriptionByUserId',
+      method: 'POST',
+      data: {
+        i_user_id: wx.getStorageSync('patientId'),
+        page: 0
+      }
+    }).then(res => {
+      const hotData = res.data;
+      this.setData({
+        historyList: hotData.register_infos,
+        page: hotData.page,
+        more: hotData.more
+      })
+    });
   },
 
   /**
@@ -131,7 +189,7 @@ Page({
       title: '刷新中...'
     });
     request({
-      url: 'registerController/seachArticles',
+      url: 'registerController/seachPrescriptionByUserId',
       method: 'POST',
       data: {
         i_user_id: wx.getStorageSync('patientId'),
@@ -141,7 +199,7 @@ Page({
       wx.stopPullDownRefresh();
       const hotData = res.data;
       this.setData({
-        historyList: hotData.register_infos.concat(hotData.register_infos),
+        historyList: hotData.register_infos,
         page: hotData.page,
         more: hotData.more
       });
@@ -167,7 +225,7 @@ Page({
       }).then(res => {
         const hotData = res.data;
         this.setData({
-          historyList: hotData.register_infos.concat(hotData.register_infos),
+          historyList: this.data.historyList.concat(hotData.register_infos),
           page: hotData.page,
           more: hotData.more
         });

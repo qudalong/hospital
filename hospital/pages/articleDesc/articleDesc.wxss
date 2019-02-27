@@ -25,10 +25,10 @@ page {
 
 .desc {
   line-height: 2;
-  padding: 30rpx;
+  padding:10rpx 30rpx;
   border-top: 1rpx solid #f0f0f0;
 }
-
-.desc image {
-  width: 100%;
+.wxParse-li{
+  text-align: left !important;
 }
+

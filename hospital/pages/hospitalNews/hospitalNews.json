@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
+  "enablePullDownRefresh": true,
   "navigationBarTitleText": "医馆资讯"
 }

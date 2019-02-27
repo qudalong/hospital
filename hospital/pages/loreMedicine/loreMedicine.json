@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
+  "enablePullDownRefresh": true,
   "navigationBarTitleText": "中药小知识"
 }

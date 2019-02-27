@@ -100,7 +100,7 @@ Page({
       wx.stopPullDownRefresh();
       const hotData = res.data;
       this.setData({
-        knowledgeList: hotData.register_infos.concat(hotData.register_infos),
+        knowledgeList: hotData.register_infos,
         page: hotData.page,
         more: hotData.more
       });
@@ -130,7 +130,7 @@ Page({
       }).then(res => {
         const hotData = res.data;
         this.setData({
-          knowledgeList: hotData.register_infos.concat(hotData.register_infos),
+          knowledgeList: this.data.knowledgeList.concat(hotData.register_infos),
           page: hotData.page,
           more: hotData.more
         });

@@ -207,8 +207,10 @@ Page({
   // 中药小知识详情
   toArticleDesc(e) {
     const id = e.currentTarget.dataset.id;
+    const title = e.currentTarget.dataset.title;
+    const time = e.currentTarget.dataset.time;
     wx.navigateTo({
-      url: `/pages/articleDesc/articleDesc?id=${id}`
+      url: `/pages/articleDesc/articleDesc?id=${id}&title=${title}&time=${time}`
     });
   },
 

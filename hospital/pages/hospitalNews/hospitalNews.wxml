@@ -1,9 +1,16 @@
 <view class='hb medicine'>
-  <view bindtap='toNewsDesc' wx:if="{{newsList.length}}" wx:for="{{newsList}}" wx:key="unique" class='news' hover-class='hover' data-id="{{item.id}}">
-    <view class='title ellipsis'>
-      <image src="{{item.path}}" class="lister_notice_icon" mode='aspectFill' />
-      <text>{{item.title}}</text>
+  <block wx:if="{{newsList.length}}">
+    <view bindtap='toNewsDesc' wx:for="{{newsList}}" wx:key="unique" class='news' hover-class='hover' data-id="{{item.id}}">
+      <view class='title ellipsis'>
+        <image src="/image/lister_notice_icon.png" class="lister_notice_icon" mode='aspectFill' />
+        <text>{{item.title}}</text>
+      </view>
+      <view class='time'>{{item.v_date}}</view>
     </view>
-    <view class='time'>{{item.v_date}}</view>
-  </view>
+  </block>
+  <block wx:else>
+    <view class='empty-warp'>
+      <image class='empty-icon' mode='widthFix' src='/image/emptystate_bg.png'></image>
+    </view>
+  </block>
 </view>

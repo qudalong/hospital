@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    username:'',
     hostoryList: []
   },
 
@@ -15,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     const username = options.username;
+    console.log(username)
     const id = options.id;
     wx.setNavigationBarTitle({
       title: username

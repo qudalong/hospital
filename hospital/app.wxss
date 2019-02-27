@@ -35,9 +35,17 @@ button::after {
   clear: both;
   height: 0;
 }
+.empty-warp {
+  text-align: center;
+}
+.empty-warp .empty-icon{
+  display: inline-block;
+  width: 180rpx;
+  height: 180rpx;
+  margin-top: 50rpx;
+}
 
 /* 公共title */
-
 .hd {
   display: flex;
   align-items: center;

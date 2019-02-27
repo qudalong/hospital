@@ -47,10 +47,10 @@ Page({
   },
 
   toNewsDesc(e){
-    const id=e.currentTarget.dataset.id;
+    const id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: `/pages/articleDesc/articleDesc?id=${id}`
-    })
+    });
   },
 
   /**
@@ -100,7 +100,7 @@ Page({
       wx.stopPullDownRefresh();
       const hotData = res.data;
       this.setData({
-        newsList: hotData.register_infos.concat(hotData.register_infos),
+        newsList: hotData.register_infos,
         page: hotData.page,
         more: hotData.more
       });
@@ -130,7 +130,7 @@ Page({
       }).then(res => {
         const hotData = res.data;
         this.setData({
-          newsList: hotData.register_infos.concat(hotData.register_infos),
+          newsList: this.data.newsList.concat(hotData.register_infos),
           page: hotData.page,
           more: hotData.more
         });

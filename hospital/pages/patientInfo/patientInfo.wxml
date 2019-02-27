@@ -1,5 +1,12 @@
-<view class='img-list clearfix'>
-  <view wx:if="{{hostoryList.length}}" wx:for="{{hostoryList}}" wx:key="unique" class='item'>
-    <image mode='aspectFill' src='{{item.path}}'></image>
+<block wx:if="{{hostoryList.length}}">
+  <view class='img-list clearfix'>
+    <view wx:for="{{hostoryList}}" wx:key="unique" class='item'>
+      <image mode='aspectFill' src='{{item.path}}'></image>
+    </view>
   </view>
-</view>
+</block>
+<block wx:else>
+  <view class='empty-warp'>
+    <image class='empty-icon' mode='widthFix' src='/image/emptystate_bg.png'></image>
+  </view>
+</block>

@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    name:'',
+    tel:''
   },
 
   /**
@@ -45,7 +46,7 @@ Page({
 
   toMyOrder() {
     wx.navigateTo({
-      url: `/pages/myOrder/myOrder`
+      url: `/pages/myOrder/myOrder?name=${this.data.name}&tel=${this.data.tel}`
     });
   },
 

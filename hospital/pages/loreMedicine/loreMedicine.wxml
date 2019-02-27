@@ -1,8 +1,15 @@
 <view class='hb medicine'>
-  <view bindtap='toArticleDesc' wx:if="{{knowledgeList.length}}" wx:for="{{knowledgeList}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
-    <view class='cover-img'>
-      <image mode='aspectFill' src='{{item.path}}'></image>
+  <block wx:if="{{knowledgeList.length}}">
+    <view bindtap='toArticleDesc' wx:for="{{knowledgeList}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
+      <view class='cover-img'>
+        <image mode='aspectFill' src='{{item.path}}'></image>
+      </view>
+      <view class='title ellipsis2'>{{item.title}}</view>
     </view>
-    <view class='title ellipsis2'>{{item.title}}</view>
-  </view>
+  </block>
+  <block wx:else>
+    <view class='empty-warp'>
+      <image class='empty-icon' mode='widthFix' src='/image/emptystate_bg.png'></image>
+    </view>
+  </block>
 </view>

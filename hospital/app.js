@@ -51,6 +51,6 @@ App({
   globalData: {
     userInfo: null,
     // url: 'https://xcx.lebeitong.com/',
-    url: 'http://192.168.2.124/sModule/'
+    url: 'http://192.168.2.166/sModule/'
   }
 })
