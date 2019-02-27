@@ -59,7 +59,7 @@
     </view>
     <view class='now-time'>{{hotNewsFirst.v_date}}</view>
   </view>
-  <view wx:if="{{showHotNewDesc}}" class='desc'>{{hotNewsFirst.content}}</view>
+  <view wx:if="{{hotNewsFirst.content}}" class='desc'>{{hotNewsFirst.content}}</view>
 </view>
 <!-- 中药小知识 -->
 <view wx:if="{{knowledgeThress.length}}" bindtap='toLoreMedicine' class='hd' hover-class='hover' data-type='3'>
