@@ -59,19 +59,12 @@ Page({
     let {
       aUploadImgList
     } = this.data;
-    if (aUploadImgList.length >= 2) {
-      wx.showToast({
-        title: '最多上传两张图片哦',
-        icon: 'none'
-      });
-      return;
-    }
     wx.showActionSheet({
       itemList: ['拍照', '从手机相册选择'],
       success: (res) => {
         if (res.tapIndex == 0) {
           wx.chooseImage({
-            count: 1,
+            count: 9,
             sizeType: ['compressed'],
             sourceType: ['camera'],
             success: (res) => {
@@ -84,7 +77,7 @@ Page({
           })
         } else if (res.tapIndex == 1) { //相册
           wx.chooseImage({
-            count: 1,
+            count: 9,
             sizeType: ['compressed'],
             sourceType: ['album'],
             success: (res) => {

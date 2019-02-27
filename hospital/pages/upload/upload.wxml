@@ -3,7 +3,7 @@
     <image mode='aspectFill' src='{{item}}'></image>
     <view bindtap='deleteImg' class='delete-icon' data-index="{{index}}">X</view>
   </view>
-  <view wx:if="{{aUploadImgList.length<2}}" bindtap='uploadImg' class='item' hover-class='hover'>
+  <view bindtap='uploadImg' class='item' hover-class='hover'>
     <image mode='aspectFill' src='/image/add_btn.png'></image>
   </view>
 </view>

@@ -22,9 +22,9 @@ Page({
     knowledgeThress: []
   },
   onLoad: function() {
-    // wx.showLoading({
-    //   title: '加载中...',
-    // });
+    wx.showLoading({
+      title: '加载中...',
+    });
     const seachDisplayImg = this.seachDisplayImg();
     //查询用户绑定信息
     const bindUserTag = this.bindUserTag();
@@ -230,15 +230,21 @@ Page({
       showHotNewDesc
     });
   },
-  onShow(){
+  onShow() {
+    //更新绑定状态
     request({
       url: 'userControl/bindUserTag',
       method: 'POST',
       data: {
         openid: wx.getStorageSync('openid')
       }
-    }).then(res=>{
+    }).then(res => {
       if (res.data.status_flag) {
+        wx.setStorageSync('patientId', res.data.t_userbind_info.id);
+        wx.setStorageSync('patient', res.data.t_userbind_info.v_user_name);
+        this.setData({
+          bindFlag: res.data.status_flag
+        })
         wx.setTabBarItem({
           index: 1,
           text: '健康档案',
@@ -246,6 +252,16 @@ Page({
           selectedIconPath: 'image/tab_order_purple.png'
         });
       }
+    });
+   //更新挂号状态
+    request({
+      url: 'registerController/getRegister',
+      method: 'POST',
+      data: {}
+    }).then(res => {
+      this.setData({
+        register_flag: res.data.register_flag
+      })
     });
   }
 })
