@@ -17,7 +17,6 @@ Page({
    */
   onLoad: function (options) {
     const username = options.username;
-    console.log(username)
     const id = options.id;
     wx.setNavigationBarTitle({
       title: username
