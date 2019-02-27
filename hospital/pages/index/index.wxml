@@ -57,11 +57,11 @@
       <image src="/image/lister_notice_icon.png" class="lister_notice_icon" mode='aspectFill' />
       <text>{{hotNewsFirst.title}}</text>
     </view>
-    <view class='now-time'>{{hotNewsFirst.v_date}}</view>
+    <view class='now-time'>{{hotNewsFirst.v_date}}</view> 
   </view>
   <view wx:if="{{hotNewsFirst.content}}" class='desc'>{{hotNewsFirst.content}}</view>
 </view>
-<!-- 中药小知识 -->
+<!-- 中药小知识111 -->
 <view wx:if="{{knowledgeThress.length}}" bindtap='toLoreMedicine' class='hd' hover-class='hover' data-type='3'>
   <view class='icon-title'>
     <image src="/image/lister_knowhow_icon.png" class="lister_knowhow_icon" mode='aspectFill' />
