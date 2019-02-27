@@ -11,12 +11,12 @@ Page({
     interval: 4000,
     duration: 400,
     bannerList: [],
-    bindFlag: false, //有没有录入信息
+    bindFlag: false, //有没有绑定信息
     register_flag: false, //能不能挂号
     curr_week_msg: '', //当前日期
     msg: '', //无法挂号提示
     weeks: [], //挂号日期
-    orderTime: '星期一 8:00-12:00', //设置的可预约时间
+    orderTime: '', //设置的可预约时间
     showHotNewDesc: true, //最新一条咨询开始显示
     hotNewsFirst: '',
     knowledgeThress: []
@@ -55,8 +55,8 @@ Page({
               iconPath: 'image/tab_order_gray.png',
               selectedIconPath: 'image/tab_order_purple.png'
             });
-            wx.setStorageSync('patientId', bindData.t_userbind_info.id || ''); //患者id
-            wx.setStorageSync('patient', bindData.t_userbind_info.v_user_name || ''); //患者id
+            wx.setStorageSync('patientId', bindData.t_userbind_info.id || ''); 
+            wx.setStorageSync('patient', bindData.t_userbind_info.v_user_name || ''); 
           }
           this.setData({
             // 轮播图
@@ -228,6 +228,24 @@ Page({
     showHotNewDesc ? showHotNewDesc = false : showHotNewDesc = true
     this.setData({
       showHotNewDesc
+    });
+  },
+  onShow(){
+    request({
+      url: 'userControl/bindUserTag',
+      method: 'POST',
+      data: {
+        openid: wx.getStorageSync('openid')
+      }
+    }).then(res=>{
+      if (res.data.status_flag) {
+        wx.setTabBarItem({
+          index: 1,
+          text: '健康档案',
+          iconPath: 'image/tab_order_gray.png',
+          selectedIconPath: 'image/tab_order_purple.png'
+        });
+      }
     });
   }
 })

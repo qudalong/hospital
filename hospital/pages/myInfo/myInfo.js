@@ -72,60 +72,16 @@ Page({
 
   //绑定用户(提交)
   submit() {
-    let {
-      id,
-      name,
-      sex,
-      tel,
-      date,
-      age
-    } = this.data;
-    const telReg = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if (!name.trim()) {
-      wx.showToast({
-        title: '请输入姓名',
-        icon: 'none'
-      });
-      return
-    } else if (!tel.trim()) {
-      wx.showToast({
-        title: '请输入手机号',
-        icon: 'none'
-      });
-      return
-    } else if (!telReg.test(tel)) {
-      wx.showToast({
-        title: '请输入正确的手机号!',
-        icon: 'none'
-      });
-      return
-    } else if (!date.trim()) {
-      wx.showToast({
-        title: '请输入出生日期',
-        icon: 'none'
-      });
-      return
-    } else if (!age) {
-      wx.showToast({
-        title: '您选择的出生日期有误',
-        icon: 'none'
-      });
-      return
-    }
-    let v_sex = '';
-    sex ? v_sex = '男' : v_sex = '女';
-    this.setData({
-      v_sex
-    });
+    this.commCk();
     request({
       url: 'userControl/bindUser',
       method: 'POST',
       data: {
         openid: wx.getStorageSync('openid'),
-        v_user_name: name,
-        v_sex: v_sex,
-        v_phone: tel,
-        v_birthday: date
+        v_user_name: this.data.name,
+        v_sex: this.data.v_sex,
+        v_phone: this.data.tel,
+        v_birthday: this.data.date
       }
     }).then(res => {
       if (res.data.status_flag) {
@@ -158,10 +114,39 @@ Page({
   },
   //修改用户
   modifyBindUser() {
+    this.commCk();
+    request({
+      url: 'userControl/modifyBindUser',
+      method: 'POST',
+      data: {
+        id: this.data.id,
+        v_user_name: this.data.name,
+        v_sex: this.data.v_sex,
+        v_phone: this.data.tel,
+        v_birthday: this.data.date
+      }
+    }).then(res => {
+      if (res.data.status_flag) {
+        wx.showToast({
+          title: '修改成功!',
+          icon: 'none'
+        });
+      } else {
+        wx.showToast({
+          title: '修改失败!',
+          icon: 'none'
+        });
+        return
+      }
+      wx.switchTab({
+        url: `/pages/index/index`
+      });
+    });
+  },
+
+  commCk(){
     let {
-      id,
       name,
-      sex,
       tel,
       date,
       age
@@ -203,32 +188,12 @@ Page({
     this.setData({
       v_sex
     });
-    request({
-      url: 'userControl/modifyBindUser',
-      method: 'POST',
-      data: {
-        id: this.data.id,
-        v_user_name: name,
-        v_sex: v_sex,
-        v_phone: tel,
-        v_birthday: date
-      }
-    }).then(res => {
-      if (res.data.status_flag) {
-        wx.showToast({
-          title: '修改成功!',
-          icon: 'none'
-        });
-      } else {
-        wx.showToast({
-          title: '修改失败!',
-          icon: 'none'
-        });
-        return
-      }
-      wx.switchTab({
-        url: `/pages/index/index`
-      });
+    this.setData({
+      name,
+      tel,
+      date,
+      age,
+      v_sex
     });
   },
 
