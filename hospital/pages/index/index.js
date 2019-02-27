@@ -55,8 +55,6 @@ Page({
               iconPath: 'image/tab_order_gray.png',
               selectedIconPath: 'image/tab_order_purple.png'
             });
-            wx.setStorageSync('patientId', bindData.t_userbind_info.id || ''); 
-            wx.setStorageSync('patient', bindData.t_userbind_info.v_user_name || ''); 
           }
           this.setData({
             // 轮播图
