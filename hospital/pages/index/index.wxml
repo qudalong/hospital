@@ -72,8 +72,8 @@
     <image src="/image/right_btn.png" class="right_btn" mode='aspectFill' />
   </view>
 </view>
-<view class='hb'>
-  <view bindtap='toArticleDesc' wx:if="{{knowledgeThress.length}}" wx:for="{{knowledgeThress}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}" data-title="{{item.title}}" data-time="{{item.v_date}}">
+<view wx:if="{{knowledgeThress.length}}" class='hb'>
+  <view bindtap='toArticleDesc'  wx:for="{{knowledgeThress}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}" data-title="{{item.title}}" data-time="{{item.v_date}}">
     <view class='cover-img'>
       <image mode='aspectFill' src='{{item.path}}'></image>
     </view>
