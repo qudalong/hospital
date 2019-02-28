@@ -37,8 +37,9 @@ Page({
 
 
   onLoad: function(options) {
-    const weeks = JSON.parse(options.weeks); //可挂号日期
-    // const weeks = { dtm_examine_date: '2019-02-27', week_name:'周三'}; //可挂号日期
+    // const weeks = JSON.parse(options.weeks); //可挂号日期
+    const weeks = {dtm_examine_date: '2019-02-28', week_name:'周四'}; //可挂号日期
+    console.log(weeks)
     const today = week(new Date());
     let orderWeek = [],
       orderDay = [],

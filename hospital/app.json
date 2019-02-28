@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/order/order",
     "pages/index/index",
     "pages/upload/upload",
-    "pages/order/order",
     "pages/myInfo/myInfo",
     "pages/my/my",
     "pages/healthRecord/healthRecord",

@@ -11,8 +11,8 @@ Page({
     interval: 4000,
     duration: 400,
     bannerList: [],
-    bindFlag: false, //有没有绑定信息
-    register_flag: false, //能不能挂号
+    bindFlag: 1, //有没有绑定信息
+    register_flag: 1, //能不能挂号
     curr_week_msg: '', //当前日期
     msg: '', //无法挂号提示
     weeks: [], //挂号日期
@@ -22,9 +22,9 @@ Page({
     knowledgeThress: []
   },
   onLoad: function() {
-    wx.showLoading({
-      title: '加载中...',
-    });
+    // wx.showLoading({
+    //   title: '加载中...',
+    // });
     const seachDisplayImg = this.seachDisplayImg();
     //查询用户绑定信息
     const bindUserTag = this.bindUserTag();

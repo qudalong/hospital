@@ -19,7 +19,7 @@
   <text>医生列表</text>
 </view>
 <view class='hb medicine'>
-  <view bindtap='orderReady' wx:if="{{doctorList.length}}" wx:for="{{doctorList}}" wx:key="unique" class='item' data-id="{{item.id}}" data-index='{{index}}' data-status='{{item.i_examine_flag}}' >
+  <view bindtap='orderReady' wx:if="{{doctorList.length}}" wx:for="{{doctorList}}" wx:key="unique" class='item' data-id="{{item.id}}" data-index='{{index}}' data-status='{{item.i_examine_flag}}'>
     <view class='people-info'>
       <view class='cover-img head'>
         <image mode='aspectFill' src="{{item.path?item.path:'/image/module_visitingadoctor_btn.png'}}"></image>
@@ -47,23 +47,22 @@
 </view>
 <view bindtap='showExplain' class='explain'>就诊说明>></view>
 <!-- 说明详情 -->
-<view wx:if="{{showExplain}}" catchtouchmove='true' class='cover-bg'>
-  <view class='explain-wrap'>
-    <view class='title'>就诊说明</view>
-    <view class='desc'>
-      <view class='item'>
-        <view class='question'>Q1:如何挂号？</view>
-        <view class='answer'>请于每周四在小程序中预约挂号</view>
-      </view>
-      <view class='item'>
-        <view class='question'>Q2:如何挂号？</view>
-        <view class='answer'>请于每周四在小程序中预约挂号</view>
-      </view>
-      <view class='item'>
-        <view class='question'>Q1:如何挂号？</view>
-        <view class='answer'>请于每周四在小程序中预约挂号</view>
-      </view>
+<view wx:if="{{showExplain}}" bindtap='closeExplain' catchtouchmove='true' class="cover-bg"></view>
+<view class="{{showExplain?'translateY':''}} explain-wrap">
+  <view class='title'>就诊说明</view>
+  <view class='desc'>
+    <view class='item'>
+      <view class='question'>Q1:如何挂号？</view>
+      <view class='answer'>请您于每周四在小程序中预约挂号</view>
     </view>
-    <view bindtap='closeExplain' class='btn-close' hover-class='hover'>关闭</view>
+    <view class='item'>
+      <view class='question'>Q2:如何就诊？</view>
+      <view class='answer'>请您根据预约时间前来就诊</view>
+    </view>
+    <view class='item'>
+      <view class='question'>Q1:如何上传？</view>
+      <view class='answer'>请您在健康档案栏目上传就诊处方图片</view>
+    </view>
   </view>
+  <view catchtap='closeExplain' class='btn-close' hover-class='hover'>关闭</view>
 </view>

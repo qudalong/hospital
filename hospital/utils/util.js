@@ -5,6 +5,7 @@ const date = date => {
   const day = date.getDate()
   return [year, month, day].map(formatNumber).join('-')
 }
+//2019-02-25 周一
 const week = date => {
   const aWeeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
   const year = date.getFullYear()
