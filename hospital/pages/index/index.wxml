@@ -73,7 +73,7 @@
   </view>
 </view>
 <view wx:if="{{knowledgeThress.length}}" class='hb'>
-  <view bindtap='toArticleDesc'  wx:for="{{knowledgeThress}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}" data-title="{{item.title}}" data-time="{{item.v_date}}">
+  <view bindtap='toArticleDesc'  wx:for="{{knowledgeThress}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
     <view class='cover-img'>
       <image mode='aspectFill' src='{{item.path}}'></image>
     </view>
