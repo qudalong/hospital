@@ -93,8 +93,8 @@ Page({
       }
     }).then(res => {
       if (res.statusCode == 200) {
-        // 进度条
         const doctorList = res.data;
+        // 进度条
         for (let i in doctorList) {
           let width = (doctorList[i].i_over_num / doctorList[i].i_max_num) * 100;
           doctorList[i].width = width
@@ -114,16 +114,23 @@ Page({
         icon: 'none'
       });
       return
-    }
+    } 
     const curIndex = e.currentTarget.dataset.index;
     const doctor = this.data.doctorList.find((cur, index, arr) => (
       index == curIndex
     ));
-    wx.setStorageSync('doctor', JSON.stringify(doctor)||'');//支付详情页用
+    if (doctor.i_over_num == doctor.i_max_num) {
+      wx.showToast({
+        title: '预约人数已满',
+        icon: 'none'
+      });
+      return
+    }
+    wx.setStorageSync('doctor', JSON.stringify(doctor)||'');
     //微信支付统一下单
     request({
-      url: 'registerController/wecharCreateUnified',
       method: 'POST',
+      url: 'registerController/wecharCreateUnified',
       data: {
         openid: wx.getStorageSync('openid'),
         total_fee: (doctor.i_examine_money) * 100
@@ -133,8 +140,7 @@ Page({
       //如果获取到订单号了，就可以去准备挂号
       console.log(JSON.stringify(hotData))
       if (hotData.out_trade_no) {
-        // 因为这个页面获取不到就诊类型（v_register_type），所以要到支付前再在验证挂号是否成功
-        wx.setStorageSync('paramPay', JSON.stringify(hotData) || '');//支付详情页用
+        wx.setStorageSync('paramPay', JSON.stringify(hotData) || '');
         wx.navigateTo({
           url: `/pages/payDesc/payDesc?chooseOrderTime=${JSON.stringify(this.data.chooseOrderTime)}`
         });
