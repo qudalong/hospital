@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/order/order",
+    "pages/my/my",
     "pages/index/index",
     "pages/upload/upload",
     "pages/myInfo/myInfo",
-    "pages/my/my",
     "pages/healthRecord/healthRecord",
     "pages/paySuccess/paySuccess",
     "pages/patientInfo/patientInfo",
