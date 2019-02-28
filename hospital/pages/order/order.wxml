@@ -48,7 +48,7 @@
 <view bindtap='showExplain' class='explain'>就诊说明<image src="/image/right_btn.png" class="right_btn" mode='aspectFill' /></view>
 <!-- 说明详情 -->
 <view wx:if="{{showExplain}}" bindtap='closeExplain' catchtouchmove='true' class="cover-bg"></view>
-<view class="explain-wrap {{showExplain?'translateY':''}}">
+<view wx:if="{{showExplain}}" class="explain-wrap {{showExplain?'translateY':''}}">
   <view class='title'>就诊说明</view>
   <view class='desc'>
     <view class='item'>
