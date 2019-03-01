@@ -6,8 +6,7 @@ Page({
 
   data: {
     title: '',
-    time: '',
-    knowledgeItem: ''
+    time: ''
   },
 
   onLoad: function(options) {
