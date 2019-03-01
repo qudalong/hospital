@@ -37,8 +37,8 @@ Page({
 
 
   onLoad: function(options) {
-    // const weeks = JSON.parse(options.weeks); //可挂号日期
-    const weeks = {dtm_examine_date: '2019-02-28', week_name:'周四'}; //可挂号日期
+    const weeks = JSON.parse(options.weeks); //可挂号日期
+    // const weeks = {dtm_examine_date: '2019-02-28', week_name:'周四'}; //可挂号日期
     console.log(weeks)
     const today = week(new Date());
     let orderWeek = [],
@@ -131,9 +131,13 @@ Page({
     request({
       method: 'POST',
       url: 'registerController/wecharCreateUnified',
+      // url: 'ShopControl/createOrder.htm',
       data: {
         openid: wx.getStorageSync('openid'),
         total_fee: (doctor.i_examine_money) * 100
+        // shopId: '810199489',
+        // openId: 'ohf495cAdAbOw9DTqWkuWkUufeAk', //唯一表示
+        // total_fee: 100 //金额（分）
       }
     }).then(res => {
       const hotData = res.data;

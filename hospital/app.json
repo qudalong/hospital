@@ -1,19 +1,19 @@
 {
   "pages": [
-    "pages/order/order",
-    "pages/my/my",
     "pages/index/index",
+    "pages/order/order",
+    "pages/hotMedicine/hotMedicine",
+    "pages/hospitalNews/hospitalNews",
+    "pages/loreMedicine/loreMedicine",
+    "pages/my/my",
     "pages/upload/upload",
     "pages/myInfo/myInfo",
     "pages/healthRecord/healthRecord",
     "pages/paySuccess/paySuccess",
     "pages/patientInfo/patientInfo",
-    "pages/hotMedicine/hotMedicine",
-    "pages/hospitalNews/hospitalNews",
     "pages/myOrder/myOrder",
     "pages/payDesc/payDesc",
-    "pages/articleDesc/articleDesc",
-    "pages/loreMedicine/loreMedicine"
+    "pages/articleDesc/articleDesc"
   ],
   "permission": {
     "scope.userLocation": {

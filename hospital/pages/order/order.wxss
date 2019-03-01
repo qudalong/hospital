@@ -57,7 +57,7 @@
   left: 0;
   width: 30rpx;
   height: 8rpx;
-  background: #19c3ba;
+  background: #9999FF;
   border-radius: 6rpx;
 }
 
@@ -89,7 +89,7 @@
 }
 
 .week-number .item.active {
-  background: #19c3ba;
+  background: #9999FF;
   color: #fff;
 }
 

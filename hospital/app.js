@@ -8,8 +8,10 @@ App({
         if (res.code) {
           wx.request({
             url: this.globalData.url + 'userControl/onOpenid',
+            // url: this.globalData.url + 'ShopControl/onLogin.htm',
             method: 'POST',
             data: {
+              // platform: 1,
               code: res.code
             },
             header: {
@@ -51,6 +53,7 @@ App({
   globalData: {
     userInfo: null,
     // url: 'https://xcx.lebeitong.com/',
+    // url: 'https://www.shanjuancha.com/cleanpro/'//
     url: 'http://192.168.2.166/sModule/'
   }
 })

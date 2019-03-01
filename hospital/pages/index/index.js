@@ -22,9 +22,9 @@ Page({
     knowledgeThress: []
   },
   onLoad: function() {
-    // wx.showLoading({
-    //   title: '加载中...',
-    // });
+    wx.showLoading({
+      title: '加载中...',
+    });
     const seachDisplayImg = this.seachDisplayImg();
     //查询用户绑定信息
     const bindUserTag = this.bindUserTag();
@@ -166,7 +166,7 @@ Page({
         wx.openLocation({
           latitude: latitude,
           longitude: longitude,
-          scale:17,
+          scale: 17,
           name: '拯济堂中医诊所',
           address: '郑州市金水区东明路北38号'
         });
@@ -230,6 +230,12 @@ Page({
   },
   onShow() {
     //更新绑定状态
+    this.updatBindUserTag();
+    //更新挂号状态
+    this.updateGetRegister();
+  },
+
+  updatBindUserTag() {
     request({
       url: 'userControl/bindUserTag',
       method: 'POST',
@@ -251,7 +257,8 @@ Page({
         });
       }
     });
-   //更新挂号状态
+  },
+  updateGetRegister() {
     request({
       url: 'registerController/getRegister',
       method: 'POST',
@@ -262,4 +269,5 @@ Page({
       })
     });
   }
+
 })
