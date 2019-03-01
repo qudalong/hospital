@@ -2,8 +2,7 @@
 <view wx:if="{{bannerList.length}}" class='banner-wrap'>
   <swiper class='swiper my-class' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#9999FF" indicator-color="#fff">
     <swiper-item wx:for="{{bannerList}}" wx:key="unique" >
-      <!-- <image bindtap='bannerToPage' src="{{item.v_path}}" class="slide-image" mode='aspectFill' data-id="{{item.id}}" data-link="{{item.v_link_path}}"/> -->
-      <image bindtap='bannerToPage' src="/image/1.jpg" class="slide-image" mode='aspectFill' data-id="{{item.id}}"/>
+      <image bindtap='bannerToPage' src="{{item.v_path}}" class="slide-image" mode='aspectFill' data-id="{{item.id}}" data-link="{{item.v_link_path}}"/>
     </swiper-item>
   </swiper>
 </view>

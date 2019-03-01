@@ -230,12 +230,12 @@ Page({
   },
   onShow() {
     //更新绑定状态
-    this.updatBindUserTag();
+    this.updateBindUserTag();
     //更新挂号状态
     this.updateGetRegister();
   },
 
-  updatBindUserTag() {
+  updateBindUserTag() {
     request({
       url: 'userControl/bindUserTag',
       method: 'POST',

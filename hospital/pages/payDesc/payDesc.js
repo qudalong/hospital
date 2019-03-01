@@ -129,7 +129,7 @@ Page({
       if (hotData.status_flag) {
       // if (res.statusCode == 200) {
         // 挂号成功，立即支付
-        return wx.requestPayment({
+         wx.requestPayment({
           'timeStamp': paramPay.timeStamp,
           'nonceStr': paramPay.nonceStr,
           'package': paramPay.package,

@@ -6,6 +6,8 @@
 .hb .item .head {
   width: 120rpx;
   height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
 }
 .people-info{
   display: flex;
