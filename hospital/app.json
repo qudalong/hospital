@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/healthRecord/healthRecord",
     "pages/order/order",
     "pages/hotMedicine/hotMedicine",
     "pages/hospitalNews/hospitalNews",
@@ -8,7 +9,6 @@
     "pages/my/my",
     "pages/upload/upload",
     "pages/myInfo/myInfo",
-    "pages/healthRecord/healthRecord",
     "pages/paySuccess/paySuccess",
     "pages/patientInfo/patientInfo",
     "pages/myOrder/myOrder",

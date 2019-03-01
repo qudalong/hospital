@@ -15,7 +15,7 @@
     <view bindtap='toPatientInfo' wx:for="{{historyList}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}" data-username="{{item.v_user_name}}">
       <view class='people-info'>
         <view class='cover-img head'>
-          <image mode='aspectFill' src='/image/my_my_icon.png'></image>
+          <image mode='aspectFill' src='/image/patients_headportrait.png'></image>
         </view>
         <view class='row-1'>{{item.v_user_name}}</view>
       </view>
