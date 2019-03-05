@@ -3,12 +3,12 @@
     "pages/index/index",
     "pages/healthRecord/healthRecord",
     "pages/order/order",
+    "pages/myInfo/myInfo",
     "pages/hotMedicine/hotMedicine",
     "pages/hospitalNews/hospitalNews",
     "pages/loreMedicine/loreMedicine",
     "pages/my/my",
     "pages/upload/upload",
-    "pages/myInfo/myInfo",
     "pages/paySuccess/paySuccess",
     "pages/patientInfo/patientInfo",
     "pages/myOrder/myOrder",
@@ -17,7 +17,7 @@
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "获取诊所具体地址，方便就诊患者查找诊所具体位置。"
+      "desc": "获取诊所地址，方便就诊患者查找具体位置。"
     }
   },
   "window": {
