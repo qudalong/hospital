@@ -55,6 +55,6 @@ App({
     userInfo: null,
     // url: 'https://www.shanjuancha.com/cleanpro/'
     // url: 'https://xcx.lebeitong.com/',
-    url: 'http://192.168.2.112/sModule/'
+    url: 'http://192.168.2.143/sModule/'
   }
 })

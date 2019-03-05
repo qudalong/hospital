@@ -25,6 +25,8 @@ Page({
     wx.showLoading({
       title: '加载中...',
     });
+    // wx.showNavigationBarLoading('11');
+    // wx.hideNavigationBarLoading()
     const seachDisplayImg = this.seachDisplayImg();
     //查询用户绑定信息
     const bindUserTag = this.bindUserTag();
