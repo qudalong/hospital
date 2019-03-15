@@ -122,6 +122,7 @@ Page({
       method: 'POST',
       data: {
         openid: wx.getStorageSync('openid'),
+        wx_nc: wx.getStorageSync('nickName'),
         v_user_name: this.data.name,
         v_sex: this.data.v_sex,
         v_phone: this.data.tel,

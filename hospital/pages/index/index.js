@@ -214,9 +214,9 @@ Page({
 
   // 轮播图跳转
   bannerToPage(e) {
-    const id = e.currentTarget.dataset.id;
+    const link = e.currentTarget.dataset.link;
     wx.navigateTo({
-      url: `/pages/articleDesc/articleDesc?id=${id}`
+      url: `/${link}`
     });
   },
 

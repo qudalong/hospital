@@ -14,25 +14,7 @@ Page({
     showExplain: false,
     orderDay: [], //可预约时间
     orderWeek: [], //可预约时间
-    doctorList: [{
-      id: 1,
-      i_doctor_id: 1,
-      v_doctor_name: "小张大夫",
-      v_examine_date: "2019-02-22",
-      i_max_num: 18,
-      i_over_num: 10,
-      i_examine_money: 400,
-      i_examine_flag: true
-    }, {
-      id: 2,
-      i_doctor_id: 3,
-      v_doctor_name: "小李大夫",
-      v_examine_date: "2019-02-22",
-      i_max_num: 18,
-      i_over_num: 2,
-      i_examine_money: 200,
-      i_examine_flag: true
-    }],
+    doctorList: [],
   },
 
 

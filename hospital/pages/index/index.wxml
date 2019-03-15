@@ -1,8 +1,8 @@
 <!-- 轮播图 -->
 <view wx:if="{{bannerList.length}}" class='banner-wrap'>
   <swiper class='swiper my-class' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#9999FF" indicator-color="#fff">
-    <swiper-item wx:for="{{bannerList}}" wx:key="unique" >
-      <image bindtap='bannerToPage' src="{{item.v_path}}" class="slide-image" mode='aspectFill' data-id="{{item.id}}" data-link="{{item.v_link_path}}"/>
+    <swiper-item wx:for="{{bannerList}}" wx:key="unique">
+      <image bindtap='bannerToPage' src="{{item.v_path}}" class="slide-image" mode='aspectFill' data-link="{{item.v_link_path}}" />
     </swiper-item>
   </swiper>
 </view>
@@ -16,11 +16,11 @@
     <image src="/image/module_torment_btn.png" class="nav-icon" mode='aspectFill' />
     <view>中药煎熬</view>
   </view>
-  <view bindtap='toHospitalNews' class='item' hover-class='hover' data-type='2'>
+  <view bindtap='toHospitalNews' class='item' hover-class='hover' data-type='3'>
     <image src="/image/module_news_btn.png" class="nav-icon" mode='aspectFill' />
     <view>医馆资讯</view>
   </view>
-  <view bindtap='toLoreMedicine' class='item' hover-class='hover' data-type='3'>
+  <view bindtap='toLoreMedicine' class='item' hover-class='hover' data-type='2'>
     <image src="/image/module_knowhow_btn.png" class="nav-icon" mode='aspectFill' />
     <view>中药小知识</view>
   </view>
@@ -56,7 +56,7 @@
       <image src="/image/lister_notice_icon.png" class="lister_notice_icon" mode='aspectFill' />
       <text>{{hotNewsFirst.title}}</text>
     </view>
-    <view class='now-time'>{{hotNewsFirst.v_date}}</view> 
+    <view class='now-time'>{{hotNewsFirst.v_date}}</view>
   </view>
   <view wx:if="{{hotNewsFirst.content}}" class='desc'>{{hotNewsFirst.content}}</view>
 </view>
@@ -72,7 +72,7 @@
   </view>
 </view>
 <view wx:if="{{knowledgeThress.length}}" class='hb'>
-  <view bindtap='toArticleDesc'  wx:for="{{knowledgeThress}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
+  <view bindtap='toArticleDesc' wx:for="{{knowledgeThress}}" wx:key="unique" class='item' hover-class='hover' data-id="{{item.id}}">
     <view class='cover-img'>
       <image mode='aspectFill' src='{{item.path}}'></image>
     </view>

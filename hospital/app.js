@@ -18,7 +18,7 @@ App({
               'content-type': 'application/json;charset=utf-8'
             },
             success: function(res) {
-              console.log(res)
+              // console.log(res)
               if (res.statusCode == 200) {
                 wx.setStorageSync('openid', res.data.openid);
                 wx.setStorageSync('sessionid', res.data.session_key);
@@ -55,6 +55,6 @@ App({
     userInfo: null,
     // url: 'https://www.shanjuancha.com/cleanpro/'
     // url: 'https://xcx.lebeitong.com/',
-    url: 'http://192.168.2.143/sModule/'
+    url: 'http://192.168.2.60/sModule/'
   }
 })
