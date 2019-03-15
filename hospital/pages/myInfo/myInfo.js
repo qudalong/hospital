@@ -113,7 +113,7 @@ Page({
       return
     }
     let v_sex = '';
-    sex ? v_sex = '男' : v_sex = '女';
+    sex == 1 ? v_sex = '男' : v_sex = '女';
     this.setData({
       v_sex
     });
@@ -202,7 +202,7 @@ Page({
       return
     }
     let v_sex = '';
-    sex ? v_sex = '男' : v_sex = '女';
+    sex==1 ? v_sex = '男' : v_sex = '女';
     this.setData({
       v_sex
     });
@@ -224,14 +224,11 @@ Page({
         });
       } else {
         wx.showToast({
-          title: '修改失败!',
+          title: '此电话号码已存在，麻烦重新填写!',
           icon: 'none'
         });
         return
       }
-      wx.switchTab({
-        url: `/pages/index/index`
-      });
     });
   },
 

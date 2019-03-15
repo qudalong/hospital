@@ -44,6 +44,10 @@ Page({
       itemList: ['拍照', '从手机相册选择'],
       success: (res) => {
         if (res.tapIndex == 0) {
+          this.setData({
+            aUploadImgList:[],
+            aUploadImgList_low: []
+          });
           wx.chooseImage({
             count: 1,
             sizeType: ['compressed'],
@@ -57,6 +61,10 @@ Page({
             }
           })
         } else if (res.tapIndex == 1) { //相册
+          this.setData({
+            aUploadImgList: [],
+            aUploadImgList_low: []
+          });
           wx.chooseImage({
             count:1,
             sizeType: ['compressed'],

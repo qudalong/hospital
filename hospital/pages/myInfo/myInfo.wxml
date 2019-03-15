@@ -49,4 +49,4 @@
     </view>
   </view>
 </view>
-<view  bindtap="{{bindFlag?'modifyBindUser':'submit'}}" class='submit-btn' hover-class='hover'>{{!bindFlag?'提交':'修改'}}</view>
+<view  bindtap="{{bindFlag?'modifyBindUser':'submit'}}" class='submit-btn' hover-class='hover'>提交</view>
