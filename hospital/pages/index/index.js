@@ -215,9 +215,15 @@ Page({
   // 轮播图跳转
   bannerToPage(e) {
     const link = e.currentTarget.dataset.link;
-    wx.navigateTo({
-      url: `/${link}`
-    });
+    if (link == 'pages/healthRecord/healthRecord') {
+      wx.switchTab({
+        url: '/pages/healthRecord/healthRecord'
+      })
+    } else {
+      wx.navigateTo({
+        url: `/${link}`
+      });
+    }
   },
 
   // 显示咨询更多开关
