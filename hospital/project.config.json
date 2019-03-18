@@ -15,7 +15,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.0",
 	"appid": "wx918aba7d6b982e49",
-	"projectname": "hospital",
+	"projectname": "hospital_d",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

@@ -21,7 +21,6 @@ Page({
   onLoad: function(options) {
     const weeks = JSON.parse(options.weeks); //可挂号日期
     // const weeks = {dtm_examine_date: '2019-02-28', week_name:'周四'}; //可挂号日期
-    console.log(weeks)
     const today = week(new Date());
     let orderWeek = [],
       orderDay = [],
@@ -42,7 +41,7 @@ Page({
     });
 
     //根据坐诊日期查询可挂号医生信息
-    this.getDoctorExamineByDate();
+    this.getDoctorExamineByDate(this.data.weeks.dtm_examine_date);
   },
 
   //选择就诊时间
@@ -57,21 +56,27 @@ Page({
       index == curCk
     ));
     let chooseOrderTime = [];
-    chooseOrderTime.push(orderDay_ck, orderWeek_ck);
+    chooseOrderTime.push(orderDay_ck, orderWeek_ck,this.data.weeks.dtm_examine_date);
+    //根据坐诊日期查询可挂号医生信息
+    const s = chooseOrderTime[2].slice(7, 10);
+    const d = this.data.orderDay[curCk];
+    const v_date = this.data.weeks.dtm_examine_date.replace(s, `-${d}`);
+    this.getDoctorExamineByDate(v_date);
     this.setData({
       curCk,
       orderWeek_ck,
       chooseOrderTime
-    })
+    });
   },
 
   //根据坐诊日期查询可挂号医生信息
-  getDoctorExamineByDate() {
+  getDoctorExamineByDate(v_date) {
     request({
       url: 'registerController/getDoctorExamineByDate',
       method: 'POST',
       data: {
-        v_date: this.data.weeks.dtm_examine_date
+        v_date: v_date
+        // v_date: this.data.weeks.dtm_examine_date
       }
     }).then(res => {
       if (res.statusCode == 200) {

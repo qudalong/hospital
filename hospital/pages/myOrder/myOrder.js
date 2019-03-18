@@ -7,19 +7,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:'',
-    tel:'',
-    page:0,
-    more:true,
-    orderList: []
+    name: '',
+    tel: '',
+    page: 0,
+    more: true,
+    orderList: [],
+    info: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    const name = options.name;
-    const tel = options.tel;
+  onLoad: function(options) {
+
+    const name = options.name || '';
+    const tel = options.tel || '';
+    const info = options.info || '';
+    // const info = JSON.parse(options.info)||'';
     this.setData({
       name,
       tel
@@ -34,7 +38,7 @@ Page({
       method: 'POST',
       data: {
         i_user_id: wx.getStorageSync('patientId'),
-        page:this.data.page
+        page: this.data.page
       }
     }).then(res => {
       const hotData = res.data;
@@ -49,40 +53,42 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
+  onUnload: function() {
+    wx.switchTab({
+      url: `/pages/my/my`
+    });
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     wx.showLoading({
       title: '刷新中...'
     });
     request({
-      url: 'registerController/seachArticles',
+      url: 'registerController/getRegisterByUserId',
       method: 'POST',
       data: {
         i_user_id: wx.getStorageSync('patientId'),
@@ -91,11 +97,13 @@ Page({
     }).then(res => {
       wx.stopPullDownRefresh();
       const hotData = res.data;
-      this.setData({
-        orderList: hotData.register_infos.concat(hotData.register_infos),
-        page: hotData.page,
-        more: hotData.more
-      });
+      if (hotData.length) {
+        this.setData({
+          orderList: hotData.register_infos.concat(hotData.register_infos),
+          page: hotData.page,
+          more: hotData.more
+        });
+      }
       wx.hideLoading();
     });
   },
@@ -103,13 +111,13 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     if (this.data.more) {
       wx.showLoading({
         title: '加载更多...'
       });
       request({
-        url: 'registerController/seachArticles',
+        url: 'registerController/getRegisterByUserId',
         method: 'POST',
         data: {
           i_user_id: wx.getStorageSync('patientId'),
@@ -117,11 +125,13 @@ Page({
         }
       }).then(res => {
         const hotData = res.data;
-        this.setData({
-          orderList: hotData.register_infos.concat(hotData.register_infos),
-          page: hotData.page,
-          more: hotData.more
-        });
+        if (hotData.length) {
+          this.setData({
+            orderList: hotData.register_infos.concat(hotData.register_infos),
+            page: hotData.page,
+            more: hotData.more
+          });
+        }
         wx.hideLoading();
       });
     } else {
@@ -135,7 +145,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

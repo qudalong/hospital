@@ -3,11 +3,11 @@ import {
 } from '../../utils/request.js'
 Page({
   data: {
-
+    register_info:null
   },
 
   onLoad: function (options) {
-    this.getRegisterByOuttradeNo(param_pay.outTradeNo);
+    this.getRegisterByOuttradeNo(options.outTradeNo);
   },
 
   //根据订单号查询挂号详情信息
@@ -22,7 +22,7 @@ Page({
       const hotData = res.data;
       if (hotData.status_flag) {
       this.setData({
-        register_info: hotData.hotData
+        register_info: hotData.register_info
       })
       }
     });
@@ -50,7 +50,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.navigateTo({
+      url: `/pages/myOrder/myOrder?info=${JSON.stringify(this.data.register_info)}`
+    })
   },
 
   /**

@@ -22,6 +22,7 @@ Page({
     knowledgeThress: []
   },
   onLoad: function() {
+  
     wx.showLoading({
       title: '加载中...',
     });
@@ -142,7 +143,7 @@ Page({
       url: 'registerController/seachArticles',
       method: 'POST',
       data: {
-        i_type: 2,
+        i_type: 3,
         page: 0
       }
     });
@@ -152,7 +153,7 @@ Page({
       url: 'registerController/seachArticles',
       method: 'POST',
       data: {
-        i_type: 3,
+        i_type: 2,
         page: 0
       }
     });
