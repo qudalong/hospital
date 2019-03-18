@@ -22,7 +22,7 @@ Page({
     knowledgeThress: []
   },
   onLoad: function() {
-  
+
     wx.showLoading({
       title: '加载中...',
     });
@@ -219,6 +219,14 @@ Page({
     if (link == 'pages/healthRecord/healthRecord') {
       wx.switchTab({
         url: '/pages/healthRecord/healthRecord'
+      })
+    } else if (link == 'pages/my/my') {
+      wx.switchTab({
+        url: '/pages/my/my'
+      })
+    } else if (link == 'pages/index/index') {
+      wx.switchTab({
+        url: '/'
       })
     } else {
       wx.navigateTo({
