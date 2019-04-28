@@ -19,7 +19,8 @@ Page({
     orderTime: '', //设置的可预约时间
     showHotNewDesc: true, //最新一条咨询开始显示
     hotNewsFirst: '',
-    knowledgeThress: []
+    knowledgeThress: [],
+    a:''
   },
   onLoad: function() {
 
